@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Visor Cesium - Ortofoto de Zona de Escalada</title>
+  https://cesium.com/downloads/cesiumjs/releases/1.114/Build/Cesium/Cesium.js
+  https://cesium.com/downloads/cesiumjs/releases/1.114/Build/Cesium/Widgets/widgets.css
+  <style>
+    html, body, #cesiumContainer {
+      width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    // Token de acceso a Cesium ion
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3Y2M0ZGM1OS00NDNlLTQ0NmItYTc4YS1hODczMjMzNDBkNzEiLCJpZCI6MzIwOTgzLCJpYXQiOjE3NTIzODUyMzJ9.ZFo8PVixSupujaoMqUFoNG_hBBqK3OFmP-vYgvpgil4';
+
+    // Crear visor
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+      terrainProvider: Cesium.createWorldTerrain(),
+      baseLayerPicker: false
+    });
+
+    // Añadir ortofoto desde Cesium ion
+    viewer.imageryLayers.addImageryProvider(
+      new Cesium.IonImageryProvider({ assetId: 3538829 })
+    );
+  </script>
+</body>
+</html>
