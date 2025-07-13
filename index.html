@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Visor Cesium - Ortofoto</title>
   https://unpkg.com/cesium@1.114/Build/Cesium/Cesium.js
-  <ttps://unpkg.com/cesium@1.114/Build/Cesium/Widgets/widgets.css
+  https://unpkg.com/cesium@1.114/Build/Cesium/Widgets/widgets.css
   <style>
     html, body, #cesiumContainer {
       width: 100%;
@@ -25,7 +25,6 @@
       baseLayerPicker: false
     });
 
-    // Cargar una capa de ejemplo desde Cesium ion (Bing Maps)
     viewer.imageryLayers.addImageryProvider(
       new Cesium.IonImageryProvider({ assetId: 2 })
     );
