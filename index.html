@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Visor Cesium - Ortofoto</title>
   https://unpkg.com/cesium@1.114/Build/Cesium/Cesium.js
-  https://unpkg.com/cesium@1.114/Build/Cesium/Widgets/widgets.css
+  <link href="https://unpkg.com/cesium@1.114/Build/Ceswidgets.css
   <style>
     html, body, #cesiumContainer {
       width: 100%;
@@ -18,13 +18,16 @@
 <body>
   <div id="cesiumContainer"></div>
   <script>
+    // Token de acceso Cesium ion
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3Y2M0ZGM1OS00NDNlLTQ0NmItYTc4YS1hODczMjMzNDBkNzEiLCJpZCI6MzIwOTgzLCJpYXQiOjE3NTIzODUyMzJ9.ZFo8PVixSupujaoMqUFoNG_hBBqK3OFmP-vYgvpgil4';
 
+    // Crear visor Cesium
     const viewer = new Cesium.Viewer('cesiumContainer', {
       terrainProvider: Cesium.createWorldTerrain(),
       baseLayerPicker: false
     });
 
+    // Añadir capa de imagen desde Cesium ion (asset público de ejemplo)
     viewer.imageryLayers.addImageryProvider(
       new Cesium.IonImageryProvider({ assetId: 2 })
     );
