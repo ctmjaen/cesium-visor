@@ -22,19 +22,18 @@
     Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3Y2M0ZGM1OS00NDNlLTQ0NmItYTc4YS1hODczMjMzNDBkNzEiLCJpZCI6MzIwOTgzLCJpYXQiOjE3NTIzODUyMzJ9.ZFo8PVixSupujaoMqUFoNG_hBBqK3OFmP-vYgvpgil4";
 
     const viewer = new Cesium.Viewer("cesiumContainer", {
-      terrain: Cesium.Terrain.fromWorldTerrain(), // CORRECTO en versiones recientes
+      terrain: Cesium.Terrain.fromWorldTerrain(),
       baseLayerPicker: true,
       timeline: true,
       animation: true
     });
 
-    Cesium.IonResource.fromAssetId(3538829)
-      .then(function(resource) {
-        const tileset = new Cesium.Cesium3DTileset({ url: resource });
+    Cesium.Cesium3DTileset.fromIonAssetId(3538829)
+      .then(function(tileset) {
         viewer.scene.primitives.add(tileset);
-        viewer.zoomTo(tileset);
+        return viewer.zoomTo(tileset);
       })
-      .otherwise(function(error) {
+      .catch(function(error) {
         console.error("Error loading asset:", error);
       });
   </script>
