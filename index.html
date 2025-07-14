@@ -19,25 +19,22 @@
 <body>
   <div id="cesiumContainer"></div>
   <script>
-    // Configurar token de acceso
     Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3Y2M0ZGM1OS00NDNlLTQ0NmItYTc4YS1hODczMjMzNDBkNzEiLCJpZCI6MzIwOTgzLCJpYXQiOjE3NTIzODUyMzJ9.ZFo8PVixSupujaoMqUFoNG_hBBqK3OFmP-vYgvpgil4";
 
-    // Crear el visor
-    const viewer = new Cesium.Viewer('cesiumContainer', {
+    const viewer = new Cesium.Viewer("cesiumContainer", {
       terrainProvider: Cesium.createWorldTerrain(),
       baseLayerPicker: true,
       timeline: true,
       animation: true
     });
 
-    // Cargar el asset
-    Cesium.IonResource.fromAssetId(3538829).then(function(resource) {
-      viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
-        url: resource
-      }));
-    }).otherwise(function(error) {
-      console.error('Error loading asset:', error);
-    });
+    Cesium.IonResource.fromAssetId(3538829)
+      .then(function (resource) {
+        viewer.scene.primitives.add(new Cesium.Cesium3DTileset({ url: resource }));
+      })
+      .otherwise(function (error) {
+        console.error("Error loading asset:", error);
+      });
   </script>
 </body>
 </html>
